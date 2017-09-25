@@ -69,11 +69,13 @@ object Problems extends App {
   // Find out whether a list is a palindrome
   object Problem06 {
       
+    def isPalindromeNatural[T](list: List[T]): Boolean = list == list.reverse
+      
     def isPalindrome[T](list: List[T]): Boolean = list match {
         case Nil       => true
         case x :: Nil  => true
         case x :: rest => (x == rest.last) match {
-                            case true  => isPalindrome(rest.init)
+                            case true  => isPalindrome(rest dropRight 1)
                             case false => false
                         }
     }               
