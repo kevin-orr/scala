@@ -55,4 +55,13 @@ class ProblemsTests extends FlatSpec with Matchers {
   it should "return 0 when passed empty list" in {
     Problems.Problem04 length List[Integer]() shouldEqual 0
   }
+
+  // reverse a list
+  "Problem05 reverse(List[Integer](1, 1, 2, 3, 5, 8))" should "return List[Integer](8, 5, 3, 2, 1, 1)" in {
+    Problems.Problem05 reverse List[Integer](1, 1, 2, 3, 5, 8) should contain theSameElementsInOrderAs List[Integer](8, 5, 3, 2, 1, 1)
+  }
+  it should "return 0 when passed empty list" in {
+    Problems.Problem05 reverse List[Integer]() shouldEqual List()
+  }
+
 }

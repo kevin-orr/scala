@@ -37,7 +37,7 @@ object Problems extends App {
       }
     }
   }
-
+  // Reverse a list
   object Problem04 {
     def lengthUsual[T](list: List[T]): Int = list.length
 
@@ -54,4 +54,19 @@ object Problems extends App {
       len(0, list)
     }
   }
+  // Reverse a list
+  object Problem05 {
+    def reverseUsual[T](list: List[T]): List[T] = list.reverse
+      
+    def reverse[T](list: List[T]): List[T] = {
+       @tailrec def rev[T](acc: List[T], original: List[T]): List[T] = original match {
+         case List()     => acc 
+         case x :: rest  => rev(List[T](x) ::: acc, rest)
+       }
+       rev(Nil, list) 
+    }
+  }
+  // Find out whether a list is a palindrome
+
+  // Flatten a nested list structure
 }
