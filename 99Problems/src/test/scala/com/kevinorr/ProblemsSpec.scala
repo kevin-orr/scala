@@ -47,4 +47,12 @@ class ProblemsTests extends FlatSpec with Matchers {
   it should "return None when passed kth position less than 1" in {
     Problems.Problem03.kth(-22, List[Integer](1, 1, 2, 3, 5, 8)) shouldEqual None
   }
+
+  // Find the number of elements of a list
+  "Problem04 length(List[Integer](1, 1, 2, 3, 5, 8))" should "return 6" in {
+    Problems.Problem04 length List[Integer](1, 1, 2, 3, 5, 8) shouldEqual 6
+  }
+  it should "return 0 when passed empty list" in {
+    Problems.Problem04 length List[Integer]() shouldEqual 0
+  }
 }

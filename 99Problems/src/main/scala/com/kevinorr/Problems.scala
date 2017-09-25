@@ -1,5 +1,6 @@
 package com.kevinorr
 
+import scala.annotation.tailrec
 /**
 http://aperiodic.net/phil/scala/s-99/
 */
@@ -34,6 +35,23 @@ object Problems extends App {
         case k if (k > 1 && k < list.size) => Option(list take k + 1 last)
         case _ => None
       }
+    }
+  }
+
+  object Problem04 {
+    def lengthUsual[T](list: List[T]): Int = list.length
+
+    def lengthWithoutTailrec[T](list: List[T]): Int = list match {
+      case List()     => 0
+      case x :: rest  => 1 + length(rest) 
+    }
+
+    def length[T](list: List[T]): Int = {
+      @tailrec def len(acc: Int, someList: List[T]) : Int = someList match {
+        case List()     => acc
+        case x :: rest  => len(acc + 1, rest) 
+      }
+      len(0, list)
     }
   }
 }
