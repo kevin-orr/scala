@@ -64,4 +64,15 @@ class ProblemsTests extends FlatSpec with Matchers {
     Problems.Problem05 reverse List[Integer]() shouldEqual List()
   }
 
+  // Find out whether a list is a palindrome.
+  "Problem06 isPalindrome(List[Integer](1, 2, 3, 2, 1))" should "return true" in {
+    Problems.Problem06 isPalindrome List[Integer](1, 2, 3, 2, 1) shouldEqual true
+  }
+  it should "return true when passed empty list" in {
+    Problems.Problem06 isPalindrome List[Integer]() shouldEqual true
+  }
+  it should "return true when passed list with one element" in {
+    Problems.Problem06 isPalindrome List[Integer](33) shouldEqual true
+  }
+
 }
