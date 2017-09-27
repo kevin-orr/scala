@@ -91,7 +91,7 @@ object Problems extends App {
 
        def flat(acc: List[Any], list: List[Any]) : List[Any] = list match {
              case Nil                   => acc
-             case (x:List[Any]) :: rest => flat(acc ::: flat(List(), x) , rest)//flat(acc ::: flatten(x) , rest)
+             case (x:List[Any]) :: rest => flat(acc ::: flat(List(), x) , rest)
              case (x:Any) :: rest       => flat(acc ::: List(x), rest)
              case _                     => List[Any]()
        }
