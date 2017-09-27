@@ -91,5 +91,15 @@ class ProblemsTests extends FlatSpec with Matchers {
   "Problem07 flattenUsualWay(List(List(1, 1), 2, List(3, List(5, 8))))" should "return List(1, 1, 2, 3, 5, 8)" in {
     Problems.Problem07 flattenUsualWay List(List(1, 1), 2, List(3, List(5, 8))) shouldEqual List(1, 1, 2, 3, 5, 8)
   }
-
+  
+  //Eliminate consecutive duplicates of list elements.
+  "Problem08 compress(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e))" should "return List('a, 'b, 'c, 'a, 'd, 'e)" in {
+    Problems.Problem08 compress(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)) shouldEqual List('a, 'b, 'c, 'a, 'd, 'e)
+  }
+  it should "return List(1) when passed List(1)" in {
+    Problems.Problem08 compress List(1) shouldEqual List(1) 
+  }
+  it should "return List() when passed List()" in {
+    Problems.Problem08 compress List() shouldEqual List() 
+  }
 }

@@ -87,17 +87,34 @@ object Problems extends App {
         case x: Any       => List(x)
     }
 
-    def flatten(list: List[Any]) : List[Any] = {
-       
-       def flat(acc: List[Any], list: List[Any]) : List[Any] = list match {
-             case Nil                   => acc
-             case (x:List[Any]) :: rest => flat(acc ::: flat(List(), x) , rest)
-             case (x:Any) :: rest       => flat(acc ::: List(x), rest)
-             case _                     => List[Any]()
-       }
-    
-       flat(List(), list)
-}         
-              
+      def flatten(list: List[Any]) : List[Any] = {
+        
+        def flat(acc: List[Any], list: List[Any]) : List[Any] = list match {
+              case Nil                   => acc
+              case (x:List[Any]) :: rest => flat(acc ::: flat(List(), x) , rest)
+              case (x:Any) :: rest       => flat(acc ::: List(x), rest)
+        }
+      
+        flat(List(), list)
+      }         
   }
+  
+  // Eliminate consecutive duplicates of list elements
+  object Problem08 {
+    def compress(list: List[Any]) : List[Any] = {
+        def compress0(acc: List[Any], list: List[Any]) : List[Any] = list match {
+            case Nil                   => acc
+            case (x:Any) :: rest       => (acc.last == x) match {
+                                            case true  => compress0(acc, rest)
+                                            case false => compress0(acc ::: List(x), rest)
+                                          }
+        }
+      
+        list match {
+          case Nil => list
+          case _   => compress0(List(list.head), list.drop(1))
+        }
+    }
+  }    
+
 }
