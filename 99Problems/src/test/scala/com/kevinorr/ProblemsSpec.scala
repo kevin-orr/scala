@@ -85,6 +85,9 @@ class ProblemsTests extends FlatSpec with Matchers {
   it should "return List() when passed list()" in {
     Problems.Problem07 flatten List() shouldEqual List() 
   }
+  it should "return List(1,'a','b',2) when passed List(1, List('a', 'b'), List(4))" in {
+    Problems.Problem07 flatten List(List(1, List("a", "b"), List(4))) shouldEqual List(1,"a", "b", 4) 
+  }
   "Problem07 flattenUsualWay(List(List(1, 1), 2, List(3, List(5, 8))))" should "return List(1, 1, 2, 3, 5, 8)" in {
     Problems.Problem07 flattenUsualWay List(List(1, 1), 2, List(3, List(5, 8))) shouldEqual List(1, 1, 2, 3, 5, 8)
   }

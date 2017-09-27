@@ -88,7 +88,7 @@ object Problems extends App {
     }
 
     def flatten(list: List[Any]) : List[Any] = {
-
+       
        def flat(acc: List[Any], list: List[Any]) : List[Any] = list match {
              case Nil                   => acc
              case (x:List[Any]) :: rest => flat(acc ::: flat(List(), x) , rest)
