@@ -115,6 +115,16 @@ object Problems extends App {
           case _   => compress0(List(list.head), list.drop(1))
         }
     }
+    
+    def compress2(list: List[Any]) : List[Any] =  {
+        @tailrec
+        def comp2(acc: List[Any], startList: List[Any]) : List[Any] = startList match {
+          case Nil       => acc
+          case x :: rest => comp2(acc ::: List(x), rest.dropWhile( _ == x))
+        }
+        comp2(List(), list)
+    } 
+
   }    
 
 }
