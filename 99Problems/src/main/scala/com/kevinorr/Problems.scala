@@ -81,4 +81,23 @@ object Problems extends App {
     }               
   }
   // Flatten a nested list structure
+  object Problem07 {
+    def flattenUsualWay(list: List[Any]) : List[Any] = list flatMap {
+        case x: List[Any] => flattenUsualWay(x)
+        case x: Any       => List(x)
+    }
+
+    def flatten(list: List[Any]) : List[Any] = {
+
+       def flat(acc: List[Any], list: List[Any]) : List[Any] = list match {
+             case Nil                   => acc
+             case (x:List[Any]) :: rest => flat(acc ::: flat(List(), x) , rest)//flat(acc ::: flatten(x) , rest)
+             case (x:Any) :: rest       => flat(acc ::: List(x), rest)
+             case _                     => List[Any]()
+       }
+    
+       flat(List(), list)
+}         
+              
+  }
 }

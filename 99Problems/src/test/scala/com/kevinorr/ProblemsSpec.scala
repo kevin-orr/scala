@@ -75,4 +75,18 @@ class ProblemsTests extends FlatSpec with Matchers {
     Problems.Problem06 isPalindrome List[Integer](33) shouldEqual true
   }
 
+  // Flatten a nested list structure.
+  "Problem07 flatten(List(List(1, 1), 2, List(3, List(5, 8))))" should "return List(1, 1, 2, 3, 5, 8)" in {
+    Problems.Problem07 flatten List(List(1, 1), 2, List(3, List(5, 8))) shouldEqual List(1, 1, 2, 3, 5, 8)
+  }
+  it should "return List(1,2,3) when passed list(1,2,3)" in {
+    Problems.Problem07 flatten List(1,2,3) shouldEqual List(1,2,3) 
+  }
+  it should "return List() when passed list()" in {
+    Problems.Problem07 flatten List() shouldEqual List() 
+  }
+  "Problem07 flattenUsualWay(List(List(1, 1), 2, List(3, List(5, 8))))" should "return List(1, 1, 2, 3, 5, 8)" in {
+    Problems.Problem07 flattenUsualWay List(List(1, 1), 2, List(3, List(5, 8))) shouldEqual List(1, 1, 2, 3, 5, 8)
+  }
+
 }
