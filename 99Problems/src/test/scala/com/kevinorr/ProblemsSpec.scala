@@ -127,4 +127,15 @@ class ProblemsTests extends FlatSpec with Matchers {
   "return List((4,'a), 'b, (2,'c), (2,'a), 'd, (4,'e))" in {
     Problems.Problem11 encodeModified(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)) shouldEqual List((4,'a), 'b, (2,'c), (2,'a), 'd, (4,'e))
   }
+
+  // Problem 12 Decode a run-length encoded list.
+  "Problem12 decode(List((4, 'a), (1, 'b), (2, 'c), (2, 'a), (1, 'd), (4, 'e)))" should 
+  "return List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)" in {
+    Problems.Problem12 decode(List((4, 'a), (1, 'b), (2, 'c), (2, 'a), (1, 'd), (4, 'e))) shouldEqual List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)
+  }
+
+  "Problem14 duplicate(List('a, 'b, 'c, 'c, 'd))" should 
+  "return List('a, 'a, 'b, 'b, 'c, 'c, 'c, 'c, 'd, 'd)" in {
+    Problems.Problem14 duplicate(List('a, 'b, 'c, 'c, 'd)) shouldEqual List('a, 'a, 'b, 'b, 'c, 'c, 'c, 'c, 'd, 'd)
+  }
 }
