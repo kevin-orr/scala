@@ -138,12 +138,18 @@ object Problems extends App {
       }
       
       def pack2R(acc: List[Any], ls: List[Any]) : List[Any] = ls match {
-        case x :: tail	=>  val (same, rest) = ls.span(_ == x); packR(same :: acc, rest)
+        case x :: tail	=>  val (same, rest) = ls.span(_ == x); pack2R(same :: acc, rest)
         case List()     => acc
       }
       
-      pack2R(List(), list)
+      pack2R(List(), list) reverse
     }         
+  }
+
+  // Pack consecutive duplicates of list elements into sublists
+  object Problem10 {
+      
+             
   }
 
 }
