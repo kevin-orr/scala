@@ -17,7 +17,7 @@ object Problems extends App {
     }
   }
 
-  // Find the last but one element of a list.
+  // Prob 2 Find the last but one element of a list.
   object Problem02 {
     //def penultimate[T](list: List[T]) : Option[T] = Some(list.init last)  
     def penultimate[T](list: List[T]) : Option[T] = list match {
@@ -27,7 +27,7 @@ object Problems extends App {
     }
   }
 
-  // Find the Kth element of a list.
+  // Prob 3 Find the Kth element of a list.
   object Problem03 {
     def kth[T](k: Int, list: List[T]): Option[T] = list match {
       case List() => None
@@ -37,7 +37,7 @@ object Problems extends App {
       }
     }
   }
-  // Reverse a list
+  // Prob 4 Find the number of elements of a list
   object Problem04 {
     def lengthUsual[T](list: List[T]): Int = list.length
 
@@ -54,7 +54,7 @@ object Problems extends App {
       len(0, list)
     }
   }
-  // Reverse a list
+  // Prob 5 Reverse a list
   object Problem05 {
     def reverseUsual[T](list: List[T]): List[T] = list.reverse
       
@@ -66,7 +66,7 @@ object Problems extends App {
        rev(Nil, list) 
     }
   }
-  // Find out whether a list is a palindrome
+  // Prob 6 Find out whether a list is a palindrome
   object Problem06 {
       
     def isPalindromeNatural[T](list: List[T]): Boolean = list == list.reverse
@@ -80,7 +80,7 @@ object Problems extends App {
                         }
     }               
   }
-  // Flatten a nested list structure
+  // Prob 7 Flatten a nested list structure
   object Problem07 {
     def flattenUsualWay(list: List[Any]) : List[Any] = list flatMap {
         case x: List[Any] => flattenUsualWay(x)
@@ -99,7 +99,7 @@ object Problems extends App {
       }         
   }
   
-  // Eliminate consecutive duplicates of list elements
+  // Prob 8 Eliminate consecutive duplicates of list elements
   object Problem08 {
     def compress(list: List[Any]) : List[Any] = {
         def compress0(acc: List[Any], list: List[Any]) : List[Any] = list match {
@@ -127,7 +127,7 @@ object Problems extends App {
 
   }    
 
-  // Pack consecutive duplicates of list elements into sublists
+  // Prob 9 Pack consecutive duplicates of list elements into sublists
   object Problem09 {
 	  def pack[A](list: List[A]) : List[List[A]] = {
   
@@ -139,7 +139,7 @@ object Problems extends App {
     }
   }
 
-  //  Run-length encoding of a list.
+  // Prob 10 Run-length encoding of a list.
   object Problem10 {
     def encode[A](list: List[A]) : List[(Int, A)] = {
       import Problems.Problem09._
@@ -147,7 +147,7 @@ object Problems extends App {
     }
   }
 
-  // Modified run-length encoding
+  // Prob 11 Modified run-length encoding
   object Problem11 {
     def encodeModified(list: List[Any]) : List[Any] = {
       import Problems.Problem10._
