@@ -146,10 +146,16 @@ object Problems extends App {
     }         
   }
 
-  // Pack consecutive duplicates of list elements into sublists
+  //  Run-length encoding of a list.
   object Problem10 {
+    def encode(list: List[Any]) : List[Any] = {
+      def encodeR(acc: List[Any], ls: List[Any]) : List[Any] = ls match {
+          case x :: tail =>  val (same, rest) = ls.span(_ == x); encodeR((same.size, x) :: acc, rest)
+          case List()    => acc
+      }
       
-             
+      encodeR(List(), list) reverse                  
+    }
   }
 
 }
