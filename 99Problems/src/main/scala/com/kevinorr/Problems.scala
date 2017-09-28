@@ -167,4 +167,13 @@ object Problems extends App {
 
   }
 
+  object problem12 {
+    def decode[A](list: List[(Int, A)]) : List[A] = {
+      list.map {
+	case (i, a) => (1 to i).toList.map { _ => a }
+      } flatten
+    } 
+  }
+	
+
 }
