@@ -136,8 +136,14 @@ object Problems extends App {
         case x :: rest => packR(ls.takeWhile (_ == x) :: acc, ls.dropWhile(_ == x))
         case List() => acc.reverse
       }
-
-      packR(List(), list)
+      
+      def pack2R(acc: List[Any], ls: List[Any]) : List[Any] = ls match {
+        case x :: tail	=>  val (same, rest) = ls.span(_ == x);
+        								    packR(same :: acc, rest)
+        case List()     => acc
+      }
+      
+      pack2R(List(), list)
     }         
   }
 
