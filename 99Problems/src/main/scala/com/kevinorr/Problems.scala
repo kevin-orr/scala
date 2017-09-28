@@ -3,6 +3,8 @@ package com.kevinorr
 import scala.annotation.tailrec
 /**
 http://aperiodic.net/phil/scala/s-99/
+
+In some solutions I've added more than one approach
 */
 object Problems extends App {
   
