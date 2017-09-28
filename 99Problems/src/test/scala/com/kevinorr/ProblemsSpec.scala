@@ -102,6 +102,7 @@ class ProblemsTests extends FlatSpec with Matchers {
   it should "return List() when passed List()" in {
     Problems.Problem08 compress List() shouldEqual List() 
   }
+  
   "Problem08 compress2(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e))" should "return List('a, 'b, 'c, 'a, 'd, 'e)" in {
     Problems.Problem08 compress2(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)) shouldEqual List('a, 'b, 'c, 'a, 'd, 'e)
   }
@@ -110,5 +111,10 @@ class ProblemsTests extends FlatSpec with Matchers {
   }
   it should "return List() when passed List()" in {
     Problems.Problem08 compress2 List() shouldEqual List() 
+  }
+
+  "Problem09 pack(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e))" should 
+  "return List(List('a, 'a, 'a, 'a), List('b), List('c, 'c), List('a, 'a), List('d), List('e, 'e, 'e, 'e))" in {
+    Problems.Problem09 pack(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)) shouldEqual List(List('a, 'a, 'a, 'a), List('b), List('c, 'c), List('a, 'a), List('d), List('e, 'e, 'e, 'e))
   }
 }

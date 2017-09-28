@@ -127,4 +127,17 @@ object Problems extends App {
 
   }    
 
+  // Pack consecutive duplicates of list elements into sublists
+  object Problem09 {
+      def pack(list: List[Any]) : List[Any] = {
+
+      def packR(acc: List[Any], ls: List[Any]) : List[Any] = ls match {
+        case x :: rest => packR(ls.takeWhile (_ == x) :: acc, ls.dropWhile(_ == x))
+        case List() => acc.reverse
+      }
+
+      packR(List(), list)
+    }         
+  }
+
 }
