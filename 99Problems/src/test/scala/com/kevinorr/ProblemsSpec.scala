@@ -147,11 +147,16 @@ class ProblemsTests extends FlatSpec with Matchers {
   }
 
   // Problem 16 Drop every Nth element from a list.
-  "Problem15 drop(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k))" should 
+  "Problem16 drop(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k))" should 
   "return List('a, 'b, 'd, 'e, 'g, 'h, 'j, 'k)" in {
     Problems.Problem16 drop(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)) shouldEqual List('a, 'b, 'd, 'e, 'g, 'h, 'j, 'k)
   }
   it should "eturn List('a, 'b, 'd, 'e, 'g, 'h, 'j, 'k) for drop(4,x)" in {
     Problems.Problem16 drop(4, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)) shouldEqual List('a, 'b, 'c, 'e, 'f, 'g, 'i, 'j, 'k)
   }
+  // Problem 17 Split a list into two parts
+  "Problem17 split(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k))" should 
+  "return (List('a, 'b, 'c),List('d, 'e, 'f, 'g, 'h, 'i, 'j, 'k))" in {
+    Problems.Problem17 split(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)) shouldEqual (List('a, 'b, 'c),List('d, 'e, 'f, 'g, 'h, 'i, 'j, 'k))
+  } 
 }

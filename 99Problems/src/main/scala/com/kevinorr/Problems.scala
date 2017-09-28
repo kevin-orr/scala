@@ -203,5 +203,11 @@ object Problems extends App {
       (list sliding(abs(n)-1, abs(n))).toList.flatten
     } 
   }
+  // Problem 17 Split a list into two parts..
+  object Problem17 {
+    def split[A](n: Int, list: List[A]) : (List[A], List[A]) =  {
+	    list splitAt n
+    } 
+  }
 
 }
