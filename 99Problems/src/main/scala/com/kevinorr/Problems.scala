@@ -151,7 +151,15 @@ object Problems extends App {
   object Problem11 {
     def encodeModified(list: List[Any]) : List[Any] = {
       import Problems.Problem10._
-      encode(list).map { pair => if (pair._1 > 1) pair else pair._2}      
+      if (false)
+        // first attempt
+        encode(list).map { pair => if (pair._1 > 1) pair else pair._2}      
+      else 
+        // but I like this with partial function - clearer
+        encode(list).map { 
+          case (1, a) => a
+          case pair   => pair
+        }      
     }
 
   }
