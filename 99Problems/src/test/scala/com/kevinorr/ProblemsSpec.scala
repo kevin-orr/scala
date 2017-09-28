@@ -122,4 +122,9 @@ class ProblemsTests extends FlatSpec with Matchers {
   "return List((4,'a), (1,'b), (2,'c), (2,'a), (1,'d), (4,'e))" in {
     Problems.Problem10 encode(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)) shouldEqual List((4,'a), (1,'b), (2,'c), (2,'a), (1,'d), (4,'e))
   }
+
+  "Problem11 encodeModified(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e))" should 
+  "return List((4,'a), 'b, (2,'c), (2,'a), 'd, (4,'e))" in {
+    Problems.Problem11 encodeModified(List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)) shouldEqual List((4,'a), 'b, (2,'c), (2,'a), 'd, (4,'e))
+  }
 }

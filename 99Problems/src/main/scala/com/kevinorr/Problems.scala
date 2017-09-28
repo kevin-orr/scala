@@ -131,11 +131,11 @@ object Problems extends App {
   object Problem09 {
 	  def pack[A](list: List[A]) : List[List[A]] = {
   
-  	  def pack2R[A](acc: List[List[A]], ls: List[A]) : List[List[A]] = ls match {
-			  case x :: tail	=>  val (same, rest) = ls.span(_ == x); pack2R[A](same :: acc, rest)
-	 		  case List()     => acc
-  	  }
-  	  pack2R(List(), list) reverse
+      def packR[A](acc: List[List[A]], ls: List[A]) : List[List[A]] = ls match {
+        case x :: tail  => val (same, rest) = ls.span(_ == x); packR[A](same :: acc, rest)
+        case List()     => acc
+      }
+      packR(List(), list) reverse
     }
   }
 
@@ -147,11 +147,11 @@ object Problems extends App {
     }
   }
 
-  //
+  // Modified run-length encoding
   object Problem11 {
     def encodeModified(list: List[Any]) : List[Any] = {
-      //pack(list) map { (N,E) => N}
-      Nil
+      import Problems.Problem10._
+      encode(list).map { pair => if (pair._1 > 1) pair else pair._2}      
     }
 
   }
