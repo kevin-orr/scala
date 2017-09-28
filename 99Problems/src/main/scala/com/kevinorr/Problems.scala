@@ -131,10 +131,11 @@ object Problems extends App {
 
   // Prob 9 Pack consecutive duplicates of list elements into sublists
   object Problem09 {
-	  def pack[A](list: List[A]) : List[List[A]] = {
+      def pack[A](list: List[A]) : List[List[A]] = {
   
       def packR[A](acc: List[List[A]], ls: List[A]) : List[List[A]] = ls match {
-        case x :: tail  => val (same, rest) = ls.span(_ == x); packR[A](same :: acc, rest)
+        case x :: tail  => val (same, rest) = ls.span(_ == x); 
+	      		    packR[A](same :: acc, rest)
         case List()     => acc
       }
       packR(List(), list) reverse
@@ -145,7 +146,7 @@ object Problems extends App {
   object Problem10 {
     def encode[A](list: List[A]) : List[(Int, A)] = {
       import Problems.Problem09._
-      pack(list).map { ls => (ls.size, ls.head)}      
+      pack(list).map { ls => (ls.size, ls.head) }      
     }
   }
 
@@ -155,9 +156,9 @@ object Problems extends App {
       import Problems.Problem10._
       if (false)
         // first attempt
-        encode(list).map { pair => if (pair._1 > 1) pair else pair._2}      
+        encode(list).map { pair => if (pair._1 > 1) pair else pair._2 }      
       else 
-        // but I like this with partial function - clearer
+        // but I like this with partial function - I think it's clearer
         encode(list).map { 
           case (1, a) => a
           case pair   => pair
