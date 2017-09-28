@@ -134,15 +134,24 @@ class ProblemsTests extends FlatSpec with Matchers {
     Problems.Problem12 decode(List((4, 'a), (1, 'b), (2, 'c), (2, 'a), (1, 'd), (4, 'e))) shouldEqual List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)
   }
 
-  // Duplicate the elements of a list.
+  // Problem 14 Duplicate the elements of a list.
   "Problem14 duplicate(List('a, 'b, 'c, 'c, 'd))" should 
   "return List('a, 'a, 'b, 'b, 'c, 'c, 'c, 'c, 'd, 'd)" in {
     Problems.Problem14 duplicate(List('a, 'b, 'c, 'c, 'd)) shouldEqual List('a, 'a, 'b, 'b, 'c, 'c, 'c, 'c, 'd, 'd)
   }
 
-  // Duplicate the elements of a list a given number of times
+  // Problem 15 Duplicate the elements of a list a given number of times
   "Problem15 duplicateN(3, List('a, 'b, 'c, 'c, 'd))" should 
   "return List('a, 'a, 'a, 'b, 'b, 'b, 'c, 'c, 'c, 'c, 'c, 'c, 'd, 'd, 'd)" in {
     Problems.Problem15 duplicateN(3, List('a, 'b, 'c, 'c, 'd)) shouldEqual List('a, 'a, 'a, 'b, 'b, 'b, 'c, 'c, 'c, 'c, 'c, 'c, 'd, 'd, 'd)
+  }
+
+  // Problem 16 Drop every Nth element from a list.
+  "Problem15 drop(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k))" should 
+  "return List('a, 'b, 'd, 'e, 'g, 'h, 'j, 'k)" in {
+    Problems.Problem16 drop(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)) shouldEqual List('a, 'b, 'd, 'e, 'g, 'h, 'j, 'k)
+  }
+  it should "eturn List('a, 'b, 'd, 'e, 'g, 'h, 'j, 'k) for drop(4,x)" in {
+    Problems.Problem16 drop(4, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)) shouldEqual List('a, 'b, 'c, 'e, 'f, 'g, 'i, 'j, 'k)
   }
 }

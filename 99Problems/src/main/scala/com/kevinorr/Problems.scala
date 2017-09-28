@@ -196,4 +196,12 @@ object Problems extends App {
       list flatMap { a => List.fill(n){ a } }
     }
   }
+  // Problem 16 Drop every Nth element from a list.
+  object Problem16 {
+    def drop[A](n: Int, list: List[A]) : List[A] =  {
+	    import math.abs
+      (list sliding(abs(n)-1, abs(n))).toList.flatten
+    } 
+  }
+
 }
