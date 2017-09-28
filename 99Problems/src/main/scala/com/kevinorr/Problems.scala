@@ -129,33 +129,31 @@ object Problems extends App {
 
   // Pack consecutive duplicates of list elements into sublists
   object Problem09 {
-      def pack(list: List[Any]) : List[Any] = {
-
-      @tailrec
-      def packR(acc: List[Any], ls: List[Any]) : List[Any] = ls match {
-        case x :: rest => packR(ls.takeWhile (_ == x) :: acc, ls.dropWhile(_ == x))
-        case List() => acc.reverse
-      }
-      
-      def pack2R(acc: List[Any], ls: List[Any]) : List[Any] = ls match {
-        case x :: tail	=>  val (same, rest) = ls.span(_ == x); pack2R(same :: acc, rest)
-        case List()     => acc
-      }
-      
-      pack2R(List(), list) reverse
-    }         
+	  def pack[A](list: List[A]) : List[List[A]] = {
+  
+  	  def pack2R[A](acc: List[List[A]], ls: List[A]) : List[List[A]] = ls match {
+			  case x :: tail	=>  val (same, rest) = ls.span(_ == x); pack2R[A](same :: acc, rest)
+	 		  case List()     => acc
+  	  }
+  	  pack2R(List(), list) reverse
+    }
   }
 
   //  Run-length encoding of a list.
   object Problem10 {
-    def encode(list: List[Any]) : List[Any] = {
-      def encodeR(acc: List[Any], ls: List[Any]) : List[Any] = ls match {
-          case x :: tail =>  val (same, rest) = ls.span(_ == x); encodeR((same.size, x) :: acc, rest)
-          case List()    => acc
-      }
-      
-      encodeR(List(), list) reverse                  
+    def encode[A](list: List[A]) : List[(Int, A)] = {
+      import Problems.Problem09._
+      pack(list).map { ls => (ls.size, ls.head)}      
     }
+  }
+
+  //
+  object Problem11 {
+    def encodeModified(list: List[Any]) : List[Any] = {
+      //pack(list) map { (N,E) => N}
+      Nil
+    }
+
   }
 
 }
