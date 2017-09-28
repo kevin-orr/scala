@@ -131,6 +131,7 @@ object Problems extends App {
   object Problem09 {
       def pack(list: List[Any]) : List[Any] = {
 
+      @tailrec
       def packR(acc: List[Any], ls: List[Any]) : List[Any] = ls match {
         case x :: rest => packR(ls.takeWhile (_ == x) :: acc, ls.dropWhile(_ == x))
         case List() => acc.reverse
