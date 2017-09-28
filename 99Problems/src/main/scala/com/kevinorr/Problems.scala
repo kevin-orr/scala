@@ -168,7 +168,7 @@ object Problems extends App {
 
   object Problem12 {
     def decode[A](list: List[(Int, A)]) : List[A] = {
-      list.flatMap {
+      list flatMap {
 	      case (i, a) => (1 to i).toList.map { _ => a }
       } 
     } 
@@ -176,7 +176,7 @@ object Problems extends App {
   // Problem 13 Run-length encoding of a list (direct solution).
   object Problem13 {
     def encodeDirect[A](list: List[(Int, A)]) : List[A] = {
-      list.flatMap {
+      list flatMap {
 	      case (i, a) => (1 to i).toList.map { _ => a }
       } 
     } 
@@ -184,7 +184,16 @@ object Problems extends App {
   // Problem 14 Duplicate the elements of a list.
   object Problem14 {
     def duplicate[A](list: List[A]) : List[A] = {
-      list.flatMap { a => List(a, a) }
+      list flatMap { a => List(a, a) } 
     } 
+  }
+
+  // Problem 15 Duplicate the elements of a list a given number of times.
+  object Problem15 {
+    def duplicateN[A](n: Int, list: List[A]) : List[A] = {
+	    // first attempt
+      //list flatMap {a => (1 to n) map { _ => a } }
+      list flatMap { a => List.fill(n){ a } }
+    }
   }
 }

@@ -134,8 +134,15 @@ class ProblemsTests extends FlatSpec with Matchers {
     Problems.Problem12 decode(List((4, 'a), (1, 'b), (2, 'c), (2, 'a), (1, 'd), (4, 'e))) shouldEqual List('a, 'a, 'a, 'a, 'b, 'c, 'c, 'a, 'a, 'd, 'e, 'e, 'e, 'e)
   }
 
+  // Duplicate the elements of a list.
   "Problem14 duplicate(List('a, 'b, 'c, 'c, 'd))" should 
   "return List('a, 'a, 'b, 'b, 'c, 'c, 'c, 'c, 'd, 'd)" in {
     Problems.Problem14 duplicate(List('a, 'b, 'c, 'c, 'd)) shouldEqual List('a, 'a, 'b, 'b, 'c, 'c, 'c, 'c, 'd, 'd)
+  }
+
+  // Duplicate the elements of a list a given number of times
+  "Problem15 duplicateN(3, List('a, 'b, 'c, 'c, 'd))" should 
+  "return List('a, 'a, 'a, 'b, 'b, 'b, 'c, 'c, 'c, 'c, 'c, 'c, 'd, 'd, 'd)" in {
+    Problems.Problem15 duplicateN(3, List('a, 'b, 'c, 'c, 'd)) shouldEqual List('a, 'a, 'a, 'b, 'b, 'b, 'c, 'c, 'c, 'c, 'c, 'c, 'd, 'd, 'd)
   }
 }
