@@ -208,7 +208,12 @@ object Problems extends App {
   object Problem17 {
     def split[A](n: Int, list: List[A]) : (List[A], List[A]) =  {
 	    list splitAt n
-    } 
+    }
+  }
+  // Problem 18 Extract a slice from a list
+  object Problem18 {
+    def slice0[A](from: Int, to: Int, list: List[A]) : List[A] = list take to drop from
+    def slice[A](from: Int, to: Int, list: List[A]) : List[A] = list.slice(from, to)
   }
 
 }
