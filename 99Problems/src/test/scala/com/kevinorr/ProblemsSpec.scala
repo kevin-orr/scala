@@ -151,7 +151,7 @@ class ProblemsTests extends FlatSpec with Matchers {
   "return List('a, 'b, 'd, 'e, 'g, 'h, 'j, 'k)" in {
     Problems.Problem16 drop(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)) shouldEqual List('a, 'b, 'd, 'e, 'g, 'h, 'j, 'k)
   }
-  it should "eturn List('a, 'b, 'd, 'e, 'g, 'h, 'j, 'k) for drop(4,x)" in {
+  it should "return List('a, 'b, 'd, 'e, 'g, 'h, 'j, 'k) for drop(4,x)" in {
     Problems.Problem16 drop(4, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)) shouldEqual List('a, 'b, 'c, 'e, 'f, 'g, 'i, 'j, 'k)
   }
   // Problem 17 Split a list into two parts
@@ -165,4 +165,12 @@ class ProblemsTests extends FlatSpec with Matchers {
     Problems.Problem18 slice(3, 7, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)) shouldEqual List('d, 'e, 'f, 'g)
   }
 
+  // Problem 19  Rotate a list N places to the left
+  "Problem19 rotate(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k))" should 
+  "return List('d, 'e, 'f, 'g, 'h, 'i, 'j, 'k, 'a, 'b, 'c)" in {
+    Problems.Problem19 rotate(3, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)) shouldEqual List('d, 'e, 'f, 'g, 'h, 'i, 'j, 'k, 'a, 'b, 'c)
+  }
+  it should "return List('j, 'k, 'a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i) for  rotate(-2, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k))" in {
+    Problems.Problem19 rotate(-2, List('a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i, 'j, 'k)) shouldEqual List('j, 'k, 'a, 'b, 'c, 'd, 'e, 'f, 'g, 'h, 'i)
+  }
 }

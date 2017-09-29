@@ -216,4 +216,16 @@ object Problems extends App {
     def slice[A](from: Int, to: Int, list: List[A]) : List[A] = list.slice(from, to)
   }
 
+  // Problem 19 Rotate a list N places to the left
+  object Problem19 {
+    def rotate[A](n: Int, list: List[A]) : List[A] = {
+      def rot[A](n: Int, acc: List[A]) : List[A] = (n, acc) match {
+        case (0, _ )      => acc
+        case (m, x :: xs) => if (m > 0) rot(m-1, acc.drop(1) ::: List(x))//, xs )
+                             else rot(m+1, acc.last :: acc.take(acc.size-1))//, xs )
+      }
+      rot(n % list.size , list)
+    } 
+  }
+
 }
